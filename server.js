@@ -6,7 +6,7 @@ const express = require('express');
 const path = require('path');
 const WebSocket = require('ws');
 const { v4: uuidv4 } = require('uuid');
-const AWS = require('aws-sdk');
+//const AWS = require('aws-sdk');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,14 +14,14 @@ const port = process.env.PORT || 3000;
 dotenv.config();
 
 // Configure AWS SDK with your credentials
-AWS.config.update({
-  region: process.env.AWS_REGION, // Specify your AWS region
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-});
+//AWS.config.update({
+ // region: process.env.AWS_REGION, // Specify your AWS region
+ // accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+ // secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+//});
 
-const dynamoDBClient = new AWS.DynamoDB.DocumentClient();
-const tableName = process.env.DYNAMODB_TABLE_NAME;
+//const dynamoDBClient = new AWS.DynamoDB.DocumentClient();
+//const tableName = process.env.DYNAMODB_TABLE_NAME;
 
 /*const testParams = {
   TableName: tableName,
@@ -90,13 +90,13 @@ wss.on('connection', (ws) => {
       },
     };
 
-    dynamoDBClient.put(params, (err) => {
-      if (err) {
-        console.error('Error saving message to DynamoDB:', err);
-      } else {
-        console.log('Message saved to DynamoDB');
-      }
-    });
+    //dynamoDBClient.put(params, (err) => {
+      //if (err) {
+       // console.error('Error saving message to DynamoDB:', err);
+     // } else {
+       // console.log('Message saved to DynamoDB');
+     // }
+    //});
 
     // Send the message to the paired client (if there is one)
     if (ws.pairWith) {
