@@ -82,13 +82,13 @@ wss.on('connection', (ws) => {
     console.log('Received message:', message);
 
     // Save the message to DynamoDB
-    const params = {
-      TableName: tableName,
-      Item: {
-        id: uuidv4(),
-        message: message.toString(),
-      },
-    };
+    //const params = {
+     // TableName: tableName,
+     // Item: {
+       // id: uuidv4(),
+       // message: message.toString(),
+     // },
+   //};
 
     //dynamoDBClient.put(params, (err) => {
       //if (err) {
